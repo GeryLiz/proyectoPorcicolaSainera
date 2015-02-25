@@ -1,0 +1,30 @@
+shfSecurity:
+  index:
+    security: false
+  logoin:
+    security: false
+  logout:
+    security: true
+
+default:
+  index:
+    security: true
+    credentials:
+      - [admin, cajero]
+  insert:
+    security: true
+    
+bodega:
+  insert:
+    security: true
+    credentials:
+      - [admin]
+  edit:
+    security: true
+    credentials:
+      - [admin]
+  update:
+    security: true
+    credentials:
+      - [admin]
+      
