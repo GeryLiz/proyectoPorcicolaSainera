@@ -263,6 +263,8 @@ ciudad_insert:
   load:
     - model/base/ciudadBaseTableClass.php
     - model/ciudadTableClass.php
+    - model/base/departamentoBaseTableClass.php
+    - model/departamentoTableClass.php
 
 ciudad_create:
   url:    /ciudad/crear
@@ -277,6 +279,8 @@ ciudad_edit:
   load:
     - model/base/ciudadBaseTableClass.php
     - model/ciudadTableClass.php
+    - model/base/departamentoBaseTableClass.php
+    - model/departamentoTableClass.php
 
 ciudad_update:
   url:    /ciudad/actualizar
@@ -519,6 +523,12 @@ hojaDeVida_insert:
   load:
     - model/base/hojaDeVidaBaseTableClass.php
     - model/hojaDeVidaTableClass.php
+    - model/base/razaBaseTableClass.php
+    - model/razaTableClass.php
+    - model/base/usuarioBaseTableClass.php
+    - model/usuarioTableClass.php
+    - model/base/moduloBaseTableClass.php
+    - model/moduloTableClass.php
 
 hojaDeVida_create:
   url:    /hojaDeVida/crear
@@ -661,6 +671,61 @@ vacunacion_deleteSelect:
     
 ##---------------------------------------------------------------------##
  
+detalleVacunacion_index:
+  url:    /detalleVacunacion/index
+  param:  { module: detalleVacunacion, action: index, format: html }
+  load:
+    - model/base/detalleVacunacionBaseTableClass.php
+    - model/detalleVacunacionTableClass.php
+
+detalleVacunacion_insert:
+  url:    /detalleVacunacion/insertar
+  param:  { module: detalleVacunacion, action: insert, format: html }
+  load:
+    - model/base/detalleVacunacionBaseTableClass.php
+    - model/detalleVacunacionTableClass.php
+     
+
+detalleVacunacion_create:
+  url:    /detalleVacunacion/crear
+  param:  { module: detalleVacunacion, action: create, format: html }
+  load:
+    - model/base/detalleVacunacionBaseTableClass.php
+    - model/detalleVacunacionTableClass.php
+    
+
+detalleVacunacion_edit:
+  url:    /detalleVacunacion/editar
+  param:  { module: detalleVacunacion, action: edit, format: html }
+  load:
+    - model/base/detalleVacunacionBaseTableClass.php
+    - model/detalleVacunacionTableClass.php
+
+detalleVacunacion_update:
+  url:    /detalleVacunacion/actualizar
+  param:  { module: detalleVacunacion, action: update, format: html }
+  load:
+    - model/base/detalleVacunacionBaseTableClass.php
+    - model/detalleVacunacionTableClass.php
+    
+
+detalleVacunacion_delete:
+  url:    /detalleVacunacionFacturaCompraInsumo/eliminar
+  param:  { module: detalleVacunacion, action: delete, format: html }
+  load:
+    - model/base/detalleVacunacionBaseTableClass.php
+    - model/detalleVacunacionTableClass.php
+
+detalleVacunacion_deleteSelect:
+  url:    /detalleVacunacion/eliminarSeleccion
+  param:  { module: detalleVacunacion, action: deleteSelect, format: html }
+  load:
+    - model/base/detalleVacunacionBaseTableClass.php
+    - model/detalleVacunacionTableClass.php
+    
+    
+##---------------------------------------------------------------------##
+ 
 facturaCompraInsumo_index:
   url:    /facturaCompraInsumo/index
   param:  { module: facturaCompraInsumo, action: index, format: html }
@@ -717,3 +782,110 @@ facturaCompraInsumo_deleteSelect:
   load:
     - model/base/facturaCompraInsumoBaseTableClass.php
     - model/facturaCompraInsumoTableClass.php
+    
+##---------------------------------------------------------------------##
+ 
+detalleFacturaCompraInsumo_index:
+  url:    /detalleFacturaCompraInsumo/index
+  param:  { module: detalleFacturaCompraInsumo, action: index, format: html }
+  load:
+    - model/base/detalleFacturaCompraInsumoBaseTableClass.php
+    - model/detalleFacturaCompraInsumoTableClass.php
+
+detalleFacturaCompraInsumo_insert:
+  url:    /detalleFacturaCompraInsumo/insertar
+  param:  { module: detalleFacturaCompraInsumo, action: insert, format: html }
+  load:
+    - model/base/detalleFacturaCompraInsumoBaseTableClass.php
+    - model/detalleFacturaCompraInsumoTableClass.php
+     
+
+detalleFacturaCompraInsumo_create:
+  url:    /detalleFacturaCompraInsumo/crear
+  param:  { module: detalleFacturaCompraInsumo, action: create, format: html }
+  load:
+    - model/base/detalleFacturaCompraInsumoBaseTableClass.php
+    - model/detalleFacturaCompraInsumoTableClass.php
+    
+
+detalleFacturaCompraInsumo_edit:
+  url:    /detalleFacturaCompraInsumo/editar
+  param:  { module: detalleFacturaCompraInsumo, action: edit, format: html }
+  load:
+    - model/base/detalleFacturaCompraInsumoBaseTableClass.php
+    - model/detalleFacturaCompraInsumoTableClass.php
+
+detalleFacturaCompraInsumo_update:
+  url:    /detalleFacturaCompraInsumo/actualizar
+  param:  { module: detalleFacturaCompraInsumo, action: update, format: html }
+  load:
+    - model/base/detalleFacturaCompraInsumoBaseTableClass.php
+    - model/detalleFacturaCompraInsumoTableClass.php
+    
+
+detalleFacturaCompraInsumo_delete:
+  url:    /detalleFacturaCompraInsumo/eliminar
+  param:  { module: detalleFacturaCompraInsumo, action: delete, format: html }
+  load:
+    - model/base/detalleFacturaCompraInsumoBaseTableClass.php
+    - model/detalleFacturaCompraInsumoTableClass.php
+
+detalleFacturaCompraInsumo_deleteSelect:
+  url:    /detalleFacturaCompraInsumo/eliminarSeleccion
+  param:  { module: detalleFacturaCompraInsumo, action: deleteSelect, format: html }
+  load:
+    - model/base/detalleFacturaCompraInsumoBaseTableClass.php
+    - model/detalleFacturaCompraInsumoTableClass.php
+    
+ ##---------------------------------------------------------------------##
+ 
+gestacion_index:
+  url:    /gestacion/index
+  param:  { module: gestacion, action: index, format: html }
+  load:
+    - model/base/gestacionBaseTableClass.php
+    - model/gestacionTableClass.php
+
+gestacion_insert:
+  url:    /gestacion/insertar
+  param:  { module: gestacion, action: insert, format: html }
+  load:
+    - model/base/gestacionBaseTableClass.php
+    - model/gestacionTableClass.php
+
+gestacion_create:
+  url:    /gestacion/crear
+  param:  { module: gestacion, action: create, format: html }
+  load:
+    - model/base/gestacionBaseTableClass.php
+    - model/gestacionTableClass.php
+
+gestacion_edit:
+  url:    /gestacion/editar
+  param:  { module: gestacion, action: edit, format: html }
+  load:
+    - model/base/gestacionBaseTableClass.php
+    - model/gestacionTableClass.php
+
+gestacion_update:
+  url:    /gestacion/actualizar
+  param:  { module: gestacion, action: update, format: html }
+  load:
+    - model/base/gestacionBaseTableClass.php
+    - model/gestacionTableClass.php
+
+gestacion_delete:
+  url:    /gestacion/eliminar
+  param:  { module: gestacion, action: delete, format: html }
+  load:
+    - model/base/gestacionBaseTableClass.php
+    - model/gestacionTableClass.php
+
+gestacion_deleteSelect:
+  url:    /gestacion/eliminarSeleccion
+  param:  { module: gestacion, action: deleteSelect, format: html }
+  load:
+    - model/base/gestacionBaseTableClass.php
+    - model/gestacionTableClass.php
+    
+    

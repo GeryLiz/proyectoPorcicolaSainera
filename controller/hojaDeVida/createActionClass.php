@@ -18,8 +18,6 @@ class createActionClass extends controllerClass implements controllerActionInter
     public function execute() {
         try {
             if (request::getInstance()->isMethod('POST')) {
-
-                $id = request::getInstance()->getPost(hojaDeVidaTableClass::getNameField(hojaDeVidaTableClass::ID, true));
                 $edad_porcino = request::getInstance()->getPost(hojaDeVidaTableClass::getNameField(hojaDeVidaTableClass::EDAD, true));
                 $peso_porcino = request::getInstance()->getPost(hojaDeVidaTableClass::getNameField(hojaDeVidaTableClass::PESO, true));
                 $genero_porcino = request::getInstance()->getPost(hojaDeVidaTableClass::getNameField(hojaDeVidaTableClass::GENERO, true));
@@ -43,6 +41,7 @@ class createActionClass extends controllerClass implements controllerActionInter
                 );
 
                 hojaDeVidaBaseTableClass::insert($data);
+                session::getInstance()->setSuccess("OLA MUNDO");
                 routing::getInstance()->redirect('hojaDeVida', 'index');
             } else {
                 routing::getInstance()->redirect('hojaDeVida', 'index');

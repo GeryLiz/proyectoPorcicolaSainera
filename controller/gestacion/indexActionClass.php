@@ -18,18 +18,21 @@ class indexActionClass extends controllerClass implements controllerActionInterf
     public function execute() {
         try {
             $fields = array(
-                detalleFacturaCompraInsumoTableClass::ITEM,
-                detalleFacturaCompraInsumoTableClass::ID_FACT,
-                detalleFacturaCompraInsumoTableClass::ID,
-                detalleFacturaCompraInsumoTableClass::CANTIDAD,
-                detalleFacturaCompraInsumoTableClass::PRECIO,
-                detalleFacturaCompraInsumoTableClass::SUBTOTAL,
-                detalleFacturaCompraInsumoTableClass::FABRICACION,
-                detalleFacturaCompraInsumoTableClass::VENCIMIENTO
+                gestacionTableClass::ID,
+                gestacionTableClass::FECHA,
+                gestacionTableClass::FECUNDACION,
+                gestacionTableClass::ID_PORCINO,
+                gestacionTableClass::NUM_MACHOS,
+                gestacionTableClass::NUM_HEMBRAS,
+                gestacionTableClass::NUM_VIVOS,
+                gestacionTableClass::NUM_MUERTOS,
+                gestacionTableClass::RESPONSABLE,
+                gestacionTableClass::FECHA_PARTO,
+                gestacionTableClass::USUARIO_ID
             );
 
-            $this->objDetalle = detalleFacturaCompraInsumoTableClass::getAll($fields, false);
-            $this->defineView('index', 'detalleFacturaCompraInsumo', session::getInstance()->getFormatOutput());
+            $this->objGestacion = gestacionTableClass::getAll($fields, false);
+            $this->defineView('index', 'gestacion', session::getInstance()->getFormatOutput());
         } catch (PDOException $exc) {
             echo $exc->getMessage();
             echo '<br>';

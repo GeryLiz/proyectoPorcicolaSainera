@@ -15,33 +15,37 @@ use mvc\i18n\i18nClass as i18n;
  */
 class createActionClass extends controllerClass implements controllerActionInterface {
 
-  public function execute() {
-    try {
-      if (request::getInstance()->isMethod('POST')) {
+    public function execute() {
+        try {
+            if (request::getInstance()->isMethod('POST')) {
+                
+                $desc_ciudad = request::getInstance()->getPost(ciudadTableClass::getNameField(ciudadTableClass::DESCRIPCION, true));
+                $id_departamento = request::getInstance()->getPost(ciudadTableClass::getNameField(ciudadTableClass::DEPARTAMENTO, true));
 
-          $desc_ciudad = request::getInstance()->getPost(ciudadTableClass::getNameField(ciudadTableClass::DESCRIPCION, true));
-          $id_departamento = request::getInstance()->getPost(ciudadTableClass::getNameField(ciudadTableClass::DEPARTAMENTO, true));
+                if(is_string($desc_ciudad) == true){
+                    throw new PDOException(i18n::__(00004, null, 'errors'));
+                }
+                
+                
+                $data = array(
+                    ciudadTableClass::DESCRIPCION => $desc_ciudad,
+                    ciudadTableClass::DEPARTAMENTO => $id_departamento
+                );
 
-        $data = array(
-            ciudadTableClass::DESCRIPCION => $desc_ciudad, 
-            ciudadTableClass::DEPARTAMENTO => $id_departamento 
-        );
-
-        ciudadTableClass::insert($data);
+                ciudadTableClass::insert($data);
+                session::getInstance()->setSuccess("La ciudad fue insertada exitosamente");
                 routing::getInstance()->redirect('ciudad', 'index');
-      } else {
-        routing::getInstance()->redirect('ciudad', 'index');
-      }
-    } catch (PDOException $exc) {
-      echo $exc->getMessage();
-      echo '<br>';
-      echo '<pre>';
-      print_r($exc->getTrace());
-      echo '</pre>';
+            } else {
+                session::getInstance()->setError("Se ha producido un error");
+                routing::getInstance()->redirect('ciudad', 'index');
+            }
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+            echo '<br>';
+            echo '<pre>';
+            print_r($exc->getTrace());
+            echo '</pre>';
+        }
     }
-  }
 
 }
-
-
-

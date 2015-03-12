@@ -1,6 +1,6 @@
 all:
   favicon: hola.ico
-  title: titulo de la p�gina general
+#  title: titulo de la pagina general
   meta:
     - charset="UTF-8"
   javascript:
@@ -13,7 +13,15 @@ all:
 
 shfSecurity:
   index:
-    title: Identificaci�n de usuario
+    title: Identificacion de usuario
     stylesheet:
       - signin.css
-
+    
+ciudad:
+  index:
+    title: Gestion de las ciudades
+  insert:
+    title: Nueva ciudad
+  edit:
+    title: Editar ciudad
+ 

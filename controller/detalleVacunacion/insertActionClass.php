@@ -17,23 +17,7 @@ class insertActionClass extends controllerClass implements controllerActionInter
 
   public function execute() {
     try {
-        $fieldsRaza = array(
-        razaTableClass::ID,
-        razaTableClass::DESCRIPCION
-        );
-        $fieldsUsuario = array(
-        usuarioTableClass::ID,
-        usuarioTableClass::USER
-        );
-        $fieldsModulo = array(
-        moduloTableClass::ID,
-        moduloTableClass::DESCRIPCION
-        );
-         
-        $this->objModulo = moduloTableClass::getAll($fieldsModulo, false);
-        $this->objUsuario = usuarioTableClass::getAll($fieldsUsuario, true);
-        $this->objRaza = razaTableClass::getAll($fieldsRaza, false);
-      $this->defineView('insert', 'hojaDeVida', session::getInstance()->getFormatOutput());
+      $this->defineView('insert', 'detalleVacunacion', session::getInstance()->getFormatOutput());
     } catch (PDOException $exc) {
       echo $exc->getMessage();
       echo '<br>';

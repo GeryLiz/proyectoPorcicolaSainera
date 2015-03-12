@@ -11,8 +11,8 @@ class detalleVacunacionBaseTableClass extends tableBaseClass {
 
     const ID = 'id';
     const ID_DOC = 'id_doc';
-    const PORCINO = 'id_porcino';
-    const INSUMO = 'id_insumo';
+    const ID_PORCINO = 'id_porcino';
+    const ID_INSUMO = 'id_insumo';
     const CANTIDAD = 'cantidad';
 
     /**

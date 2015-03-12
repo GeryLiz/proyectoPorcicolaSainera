@@ -17,26 +17,22 @@ class editActionClass extends controllerClass implements controllerActionInterfa
 
   public function execute() {
     try {
-      if (request::getInstance()->hasRequest(ciudadTableClass::ID)) {
+      if (request::getInstance()->hasRequest(detalleVacunacionTableClass::ID)) {
         $fields = array(
-            ciudadTableClass::ID,
-            ciudadTableClass::DESCRIPCION,
-            ciudadTableClass::DEPARTAMENTO
+        detalleVacunacionTableClass::ID,
+        detalleVacunacionTableClass::ID_DOC,
+        detalleVacunacionTableClass::ID_PORCINO,
+        detalleVacunacionTableClass::ID_INSUMO,
+        detalleVacunacionTableClass::CANTIDAD
         );
         $where = array(
-            ciudadTableClass::ID => request::getInstance()->getRequest(ciudadTableClass::ID)
+            detalleVacunacionTableClass::ID => request::getInstance()->getRequest(detalleVacunacionTableClass::ID)
         );
         
-        $fieldsDepto = array(
-        departamentoTableClass::ID,
-        departamentoTableClass::DESCRIPCION
-        );
-        
-        $this->objDepto = departamentoTableClass::getAll($fieldsDepto, false);
-        $this->objCiudad = ciudadTableClass::getAll($fields, false, null ,null, null, null, $where);
-        $this->defineView('edit', 'ciudad', session::getInstance()->getFormatOutput());
+        $this->objDetalleVacunacion = detalleVacunacionTableClass::getAll($fields, false, null ,null, null, null, $where);
+        $this->defineView('edit', 'detalleVacunacion', session::getInstance()->getFormatOutput());
       } else {
-        routing::getInstance()->redirect('ciudad', 'index');
+        routing::getInstance()->redirect('detalleVacunacion', 'index');
       }
     } catch (PDOException $exc) {
       echo $exc->getMessage();
@@ -48,4 +44,5 @@ class editActionClass extends controllerClass implements controllerActionInterfa
   }
 
 }
+
 

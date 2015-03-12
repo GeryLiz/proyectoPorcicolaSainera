@@ -7,7 +7,7 @@ use mvc\model\table\tableBaseClass;
  *
  * @author Julian Lasso <ingeniero.julianlasso@gmail.com>
  */
-class detalleFacturaCompraInsumoTableClass extends tableBaseClass {
+class detalleFacturaCompraInsumoBaseTableClass extends tableBaseClass {
 
     const ITEM = 'item';
     const ID_FACT = 'id_fact';
@@ -15,8 +15,8 @@ class detalleFacturaCompraInsumoTableClass extends tableBaseClass {
     const CANTIDAD = 'cantidad';
     const PRECIO = 'precio';
     const SUBTOTAL = 'subtotal';
-    const FABRICACION = 'fabricacion';
-    const VENCIMIENTO = 'vencimiento';
+    const FABRICACION = 'fecha_fabricacion';
+    const VENCIMIENTO = 'fecha_vencimiento';
 
     /**
      * Método para obtener el nombre del campo más la tabla ya sea en formato

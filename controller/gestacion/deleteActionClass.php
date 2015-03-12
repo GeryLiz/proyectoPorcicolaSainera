@@ -13,18 +13,22 @@ use mvc\i18n\i18nClass as i18n;
  *
  * @author Julian Lasso <ingeniero.julianlasso@gmail.com>
  */
-class indexActionClass extends controllerClass implements controllerActionInterface {
+class deleteActionClass extends controllerClass implements controllerActionInterface {
 
     public function execute() {
         try {
-            $fields = array(
-                ciudadTableClass::ID,
-                ciudadTableClass::DESCRIPCION,
-                ciudadTableClass::DEPARTAMENTO
-            );
+            if (request::getInstance()->isMethod('POST')) {
 
-            $this->objCiudad = ciudadTableClass::getAll($fields, false);
-            $this->defineView('index', 'ciudad', session::getInstance()->getFormatOutput());
+                $id = request::getInstance()->getPost(gestacionTableClass::getNameField(gestacionTableClass::ID, true));
+
+                $ids = array(
+                    gestacionTableClass::ID => $id
+                );
+                gestacionTableClass::delete($ids, false);
+                routing::getInstance()->redirect('gestacion', 'index');
+            } else {
+                routing::getInstance()->redirect('gestacion', 'index');
+            }
         } catch (PDOException $exc) {
             echo $exc->getMessage();
             echo '<br>';

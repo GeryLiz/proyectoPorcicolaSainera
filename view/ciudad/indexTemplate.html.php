@@ -1,4 +1,5 @@
 <?php use mvc\routing\routingClass as routing ?>
+<?php use mvc\view\viewClass as view ?>
 
 <div class="container container-fluid">
   <form id="frmDeleteAll" action="<?php echo routing::getInstance()->getUrlWeb('ciudad', 'deleteSelect') ?>" method="POST">
@@ -6,7 +7,7 @@
       <a href="<?php echo routing::getInstance()->getUrlWeb('ciudad', 'insert') ?>" class="btn btn-success btn-xs">Nuevo</a>
       <a href="#" class="btn btn-danger btn-xs" onclick="borrarSeleccion()">Borrar</a>
     </div>
-      
+      <?php view::includeHandlerMessage() ?>
     <table class="table table-bordered table-responsive">
       <thead>
         <tr>

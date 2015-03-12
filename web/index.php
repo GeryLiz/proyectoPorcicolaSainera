@@ -1,5 +1,5 @@
 <?php
-session_name('mvcSite');
+session_name('Proyecto Porcicola Sainera');
 session_start();
 //ob_start();
 include_once __DIR__ . '/../libs/vendor/autoLoadClass.php';
