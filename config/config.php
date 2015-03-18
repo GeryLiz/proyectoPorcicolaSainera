@@ -1,6 +1,7 @@
 <?php
 
 use mvc\config\configClass as config;
+use mvc\session\sessionClass as session;
 
 config::setRowGrid(10);
 
@@ -32,7 +33,13 @@ config::setPathAbsolute('C:/xampp/htdocs/proyecto_porcicola/');
 config::setUrlBase('http://localhost/proyecto_porcicola/web/');
 
 config::setScope('dev'); // prod
-config::setDefaultCulture('es');
+
+if (session::getInstance()->hasDefaultCulture() === false) {
+  config::setDefaultCulture('es');
+} else {
+  config::setDefaultCulture(session::getInstance()->getDefaultCulture());
+}
+
 config::setIndexFile('index.php');
 
 config::setFormatTimestamp('Y-m-d H:i:s');
